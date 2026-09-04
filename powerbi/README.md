@@ -1,3 +1,22 @@
-# Power BI
+# Power BI Dashboard
 
-This folder contains the Power BI dashboard screenshots and documentation for the project.
+The Gold layer of the data pipeline is consumed for business
+reporting and visualization in Power BI.
+
+## Dashboard Areas
+
+- Revenue Analysis
+- Customer Analysis
+- Order Trends
+- Returns Analysis
+- Order Performance
+
+## Data Flow
+
+Gold Layer
+    ↓
+Azure Synapse Analytics
+    ↓
+Power BI
+    ↓
+Business Dashboard
