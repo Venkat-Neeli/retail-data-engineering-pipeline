@@ -35,6 +35,7 @@ def convert_date_columns(df, columns):
 def calculate_total_price(df):
     """Calculate total price for each line item."""
 
+    # Calculate final line-item price after discount and tax
     return df.withColumn(
         "L_TOTALPRICE",
         F.col("L_EXTENDEDPRICE")
