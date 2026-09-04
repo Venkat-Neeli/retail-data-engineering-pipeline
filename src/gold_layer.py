@@ -25,19 +25,22 @@ gold_dataframes = {
 }
 
 
-# ---------------------------------------------------------
-# Write analytics-ready datasets
-# ---------------------------------------------------------
+def write_gold_parquet_tables(dataframes_to_write):
+    """
+    Write processed DataFrames to the Gold Parquet layer.
+    """
 
-for table_name, df in gold_dataframes.items():
+    for table_name, df in dataframes_to_write.items():
 
-    target_path = f"{GOLD_PATH}/{table_name}"
+        target_path = f"{GOLD_PATH}/{table_name}"
 
-    (
-        df.write
-        .format("parquet")
-        .mode("overwrite")
-        .save(target_path)
-    )
+        (
+            df.write
+            .format("parquet")
+            .mode("overwrite")
+            .save(target_path)
+        )
 
-    print(f"Created Gold dataset: {table_name}")
+        print(
+            f"Created Gold dataset: {table_name}"
+        )
