@@ -1,6 +1,9 @@
 -- =========================================================
 -- Delta Lake MERGE / UPSERT
 -- Retail Data Engineering Pipeline
+--
+-- Demonstrates how existing records are updated
+-- and new records are inserted into a Delta table.
 -- =========================================================
 
 MERGE INTO lineitem AS target
