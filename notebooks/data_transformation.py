@@ -4,30 +4,37 @@
 from pyspark.sql import functions as F
 from pyspark.sql.window import Window
 
+from data_cleaning import cleaned_dataframes
+
 
 def trim_string_columns(df):
     """Trim whitespace from all string columns."""
+
     for column_name, data_type in df.dtypes:
         if data_type == "string":
             df = df.withColumn(
                 column_name,
                 F.trim(F.col(column_name))
             )
+
     return df
 
 
 def convert_date_columns(df, columns):
     """Convert specified columns to date format."""
+
     for column_name in columns:
         df = df.withColumn(
             column_name,
             F.to_date(F.col(column_name), "yyyy-MM-dd")
         )
+
     return df
 
 
 def calculate_total_price(df):
-    """Calculate the total line-item price."""
+    """Calculate total price for each line item."""
+
     return df.withColumn(
         "L_TOTALPRICE",
         F.col("L_EXTENDEDPRICE")
@@ -37,8 +44,10 @@ def calculate_total_price(df):
 
 
 # ---------------------------------------------------------
-# Lineitem transformations
+# Lineitem transformation
 # ---------------------------------------------------------
+
+lineitem_df = cleaned_dataframes["lineitem"]
 
 lineitem_df = trim_string_columns(lineitem_df)
 
@@ -95,9 +104,14 @@ ranked_lineitem_df = lineitem_df.withColumn(
 
 
 # ---------------------------------------------------------
-# Display sample results
+# Output
 # ---------------------------------------------------------
 
+print("Air shipment records:")
 air_shipmode_df.show(5)
+
+print("Average discount by order:")
 avg_discount_df.show(5)
+
+print("Ranked line items:")
 ranked_lineitem_df.show(5)
