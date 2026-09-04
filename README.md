@@ -1,2 +1,3 @@
-# retail-data-engineering-pipeline
-End-to-end retail data engineering pipeline using Azure Data Lake, Databricks, PySpark, Delta Lake, Synapse Analytics and Power BI.
+# Retail Data Engineering Pipeline
+
+An end-to-end data engineering project built using Azure Data Lake Storage, Azure Databricks, PySpark, Delta Lake, Azure Synapse Analytics, and Power BI.
