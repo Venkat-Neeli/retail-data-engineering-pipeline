@@ -1,14 +1,16 @@
 # Data cleaning and validation
 # Retail Data Engineering Pipeline
 
-from notebooks.data_ingestion import dataframes
+from pyspark.sql import functions as F
+
+from data_ingestion import dataframes
 
 
 def clean_dataframe(df):
     """Clean a dataframe by replacing empty strings and removing duplicates."""
 
     df = df.replace("", None)
-    df = df.drop_duplicates()
+    df = df.dropDuplicates()
 
     return df
 
@@ -20,16 +22,15 @@ def validate_dataframe(name, df):
     print(f"Rows: {df.count()}")
     print(f"Columns: {len(df.columns)}")
 
-    print("Null values:")
-    df.select([
-        __import__("pyspark").sql.functions.count(
-            __import__("pyspark").sql.functions.when(
-                __import__("pyspark").sql.functions.col(column).isNull(),
-                column
-            )
+    null_counts = df.select([
+        F.count(
+            F.when(F.col(column).isNull(), column)
         ).alias(column)
         for column in df.columns
-    ]).show()
+    ])
+
+    print("Null values:")
+    null_counts.show()
 
 
 # ---------------------------------------------------------
