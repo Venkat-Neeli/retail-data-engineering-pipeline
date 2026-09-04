@@ -3,7 +3,7 @@
 
 from pyspark.sql import functions as F
 
-from data_ingestion import dataframes
+from src.data_ingestion import dataframes
 
 
 customer_df = dataframes["customer"]
