@@ -3,6 +3,16 @@
 
 from pyspark.sql import functions as F
 
+from data_ingestion import dataframes
+
+
+customer_df = dataframes["customer"]
+order_df = dataframes["orders"]
+nation_df = dataframes["nation"]
+region_df = dataframes["region"]
+part_df = dataframes["part"]
+partsupp_df = dataframes["partsupp"]
+
 
 # ---------------------------------------------------------
 # Geography enrichment
@@ -54,7 +64,7 @@ parts_info_df = (
 
 
 # ---------------------------------------------------------
-# Order + Customer enrichment
+# Customer + Orders enrichment
 # ---------------------------------------------------------
 
 customer_orders_df = (
@@ -78,14 +88,14 @@ customer_orders_df = (
 
 
 # ---------------------------------------------------------
-# Display sample results
+# Output
 # ---------------------------------------------------------
 
-print("Geo Location")
+print("Geography enrichment:")
 geo_location_df.show(5)
 
-print("Parts Information")
+print("Parts enrichment:")
 parts_info_df.show(5)
 
-print("Customer Orders")
+print("Customer and order enrichment:")
 customer_orders_df.show(5)
