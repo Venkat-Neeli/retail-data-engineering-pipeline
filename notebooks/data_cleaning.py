@@ -1,7 +1,7 @@
 # Data cleaning and validation
 # Retail Data Engineering Pipeline
 
-from notebooks.01_data_ingestion import dataframes
+from notebooks.data_ingestion import dataframes
 
 
 def clean_dataframe(df):
