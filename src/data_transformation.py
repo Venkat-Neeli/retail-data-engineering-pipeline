@@ -67,7 +67,7 @@ lineitem_df = calculate_total_price(lineitem_df)
 # ---------------------------------------------------------
 # Filtering
 # ---------------------------------------------------------
-
+# Filter orders shipped using AIR mode
 air_shipmode_df = lineitem_df.filter(
     F.col("L_SHIPMODE") == "AIR"
 )
