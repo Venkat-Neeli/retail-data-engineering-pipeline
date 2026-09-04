@@ -145,3 +145,14 @@ The datasets are connected through keys such as:
 - Power BI dashboards
 - Business reporting
 
+## Project Highlights
+
+- Built an end-to-end retail data engineering pipeline on Microsoft Azure.
+- Implemented Medallion Architecture using Bronze, Silver, and Gold layers.
+- Used Azure Databricks and PySpark for data cleaning, transformation, enrichment, and analytics.
+- Implemented Delta Lake tables with schema enforcement and MERGE/UPSERT operations.
+- Applied PySpark joins, aggregations, filtering, window functions, and partitioning.
+- Prepared analytics-ready Gold datasets for downstream consumption.
+- Used Azure Synapse Analytics for SQL-based analytical queries.
+- Built Power BI dashboards for revenue, customer, order, and returns analysis.
+- Implemented secure Azure access using Azure Key Vault concepts rather than exposing credentials in source code.
