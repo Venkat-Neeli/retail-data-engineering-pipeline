@@ -1,30 +1,37 @@
 # Gold layer
 # Retail Data Engineering Pipeline
 
-gold_base_path = "dbfs:/mnt/retail/gold"
+from config import GOLD_PATH
+
+from data_ingestion import dataframes
+from data_transformation import lineitem_df
+from data_enrichment import (
+    geo_location_df,
+    parts_info_df,
+)
 
 
 # ---------------------------------------------------------
-# Gold datasets
+# Prepare Gold datasets
 # ---------------------------------------------------------
 
 gold_dataframes = {
-    "customers": customer_df,
+    "customers": dataframes["customer"],
     "lineitem": lineitem_df,
-    "orders": order_df,
-    "supplier": supplier_df,
+    "orders": dataframes["orders"],
+    "supplier": dataframes["supplier"],
     "geo_location": geo_location_df,
     "parts_info": parts_info_df,
 }
 
 
 # ---------------------------------------------------------
-# Write Gold data as Parquet
+# Write analytics-ready datasets
 # ---------------------------------------------------------
 
 for table_name, df in gold_dataframes.items():
 
-    target_path = f"{gold_base_path}/{table_name}"
+    target_path = f"{GOLD_PATH}/{table_name}"
 
     (
         df.write
