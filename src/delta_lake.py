@@ -3,9 +3,9 @@
 
 from config import SILVER_PATH
 
-from data_ingestion import dataframes
-from data_transformation import lineitem_df
-from data_enrichment import (
+from src.data_ingestion import dataframes
+from src.data_transformation import lineitem_df
+from src.data_enrichment import (
     geo_location_df,
     parts_info_df,
 )
