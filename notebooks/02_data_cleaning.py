@@ -1,33 +1,50 @@
 # Data cleaning and validation
 # Retail Data Engineering Pipeline
 
-import pandas as pd
+from notebooks.01_data_ingestion import dataframes
 
 
 def clean_dataframe(df):
     """Clean a dataframe by replacing empty strings and removing duplicates."""
+
     df = df.replace("", None)
     df = df.drop_duplicates()
+
     return df
 
 
 def validate_dataframe(name, df):
-    """Display basic data-quality information."""
+    """Perform basic data-quality validation."""
+
     print(f"\nDataset: {name}")
-    print(f"Rows: {len(df)}")
+    print(f"Rows: {df.count()}")
     print(f"Columns: {len(df.columns)}")
-    print(f"Duplicate rows: {df.duplicated().sum()}")
-    print("\nNull values:")
-    print(df.isnull().sum())
+
+    print("Null values:")
+    df.select([
+        __import__("pyspark").sql.functions.count(
+            __import__("pyspark").sql.functions.when(
+                __import__("pyspark").sql.functions.col(column).isNull(),
+                column
+            )
+        ).alias(column)
+        for column in df.columns
+    ]).show()
 
 
-# Apply cleaning
+# ---------------------------------------------------------
+# Clean datasets
+# ---------------------------------------------------------
+
 cleaned_dataframes = {
     name: clean_dataframe(df)
     for name, df in dataframes.items()
 }
 
 
-# Validate each dataset
+# ---------------------------------------------------------
+# Validate datasets
+# ---------------------------------------------------------
+
 for name, df in cleaned_dataframes.items():
     validate_dataframe(name, df)
