@@ -156,3 +156,42 @@ The datasets are connected through keys such as:
 - Used Azure Synapse Analytics for SQL-based analytical queries.
 - Built Power BI dashboards for revenue, customer, order, and returns analysis.
 - Implemented secure Azure access using Azure Key Vault concepts rather than exposing credentials in source code.
+
+## Repository Structure
+
+```text
+retail-data-engineering-pipeline/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── config.py
+│
+├── architecture/
+│   ├── README.md
+│   └── architecture-diagram.png
+│
+├── src/
+│   ├── __init__.py
+│   ├── README.md
+│   ├── data_ingestion.py
+│   ├── data_cleaning.py
+│   ├── data_transformation.py
+│   ├── data_enrichment.py
+│   ├── delta_lake.py
+│   └── gold_layer.py
+│
+├── notebooks/
+│   └── README.md
+│
+├── sql/
+│   ├── README.md
+│   ├── business_queries.sql
+│   └── delta_merge_upsert.sql
+│
+└── powerbi/
+    ├── README.md
+    ├── revenue-analysis.png
+    ├── customer-order-analysis.png
+    ├── returns-analysis.png
+    └── business-insights.png
