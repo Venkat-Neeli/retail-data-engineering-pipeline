@@ -4,7 +4,7 @@
 from pyspark.sql import functions as F
 from pyspark.sql.window import Window
 
-from data_cleaning import cleaned_dataframes
+from src.data_cleaning import cleaned_dataframes
 
 
 def trim_string_columns(df):
