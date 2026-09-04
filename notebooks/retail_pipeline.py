@@ -78,12 +78,17 @@ for name, df in silver_dataframes.items():
 # 6. Gold Layer
 # ---------------------------------------------------------
 
-from src.gold_layer import gold_dataframes
+from src.gold_layer import (
+    gold_dataframes,
+    write_gold_parquet_tables,
+)
 
 print("\n[6] Gold layer")
 
 for name, df in gold_dataframes.items():
     print(f"  {name}: {df.count()} records")
+
+write_gold_parquet_tables(gold_dataframes)
 
 
 # ---------------------------------------------------------
