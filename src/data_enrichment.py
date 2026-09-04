@@ -1,8 +1,6 @@
 # Data enrichment and joins
 # Retail Data Engineering Pipeline
 
-from pyspark.sql import functions as F
-
 from src.data_ingestion import dataframes
 
 
