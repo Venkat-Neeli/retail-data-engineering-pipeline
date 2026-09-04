@@ -89,7 +89,7 @@ avg_discount_df = (
 # ---------------------------------------------------------
 # Window function
 # ---------------------------------------------------------
-
+# Rank line items within each order by quantity
 window_spec = (
     Window
     .partitionBy("L_ORDERKEY")
