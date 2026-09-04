@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Secrets and credentials
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Azure / Databricks local configuration
+.databricks/
+.azure/
+
+# Data files
+*.csv
+*.tsv
+*.parquet
+*.json
+
+# Temporary files
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
