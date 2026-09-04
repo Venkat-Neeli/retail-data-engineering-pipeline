@@ -2,7 +2,6 @@
 # Retail Data Engineering Pipeline
 
 from config import SILVER_PATH
-
 from src.data_ingestion import dataframes
 from src.data_transformation import lineitem_df
 from src.data_enrichment import (
@@ -25,20 +24,23 @@ silver_dataframes = {
 }
 
 
-# ---------------------------------------------------------
-# Write datasets as Delta tables
-# ---------------------------------------------------------
+def write_silver_delta_tables(dataframes_to_write):
+    """
+    Write processed DataFrames to the Silver Delta layer.
+    """
 
-for table_name, df in silver_dataframes.items():
+    for table_name, df in dataframes_to_write.items():
 
-    target_path = f"{SILVER_PATH}/{table_name}"
+        target_path = f"{SILVER_PATH}/{table_name}"
 
-    (
-        df.write
-        .format("delta")
-        .mode("overwrite")
-        .option("overwriteSchema", "true")
-        .save(target_path)
-    )
+        (
+            df.write
+            .format("delta")
+            .mode("overwrite")
+            .option("overwriteSchema", "true")
+            .save(target_path)
+        )
 
-    print(f"Created Silver Delta table: {table_name}")
+        print(
+            f"Created Silver Delta table: {table_name}"
+        )
