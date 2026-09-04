@@ -1,5 +1,9 @@
 # Power BI Dashboard
 
+The Power BI dashboard provides business-level insights from the processed retail data.
+
+The dashboard covers revenue, customer and order trends, returns analysis, and key business insights.
+
 The Gold layer of the data pipeline is consumed for business reporting and visualization in Power BI.
 
 ## Dashboard Areas
