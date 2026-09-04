@@ -1,5 +1,7 @@
+-- =========================================================
 -- Delta Lake MERGE / UPSERT
 -- Retail Data Engineering Pipeline
+-- =========================================================
 
 MERGE INTO lineitem AS target
 
