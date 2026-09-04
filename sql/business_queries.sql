@@ -1,6 +1,8 @@
 -- =========================================================
 -- Retail Data Engineering Pipeline
--- Business / Analytical Queries
+-- Business Analytics Queries
+-- Retail Data Engineering Pipeline
+-- These queries demonstrate analytical use cases on the processed retail data.
 -- =========================================================
 
 
