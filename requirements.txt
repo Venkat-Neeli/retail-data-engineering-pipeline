@@ -1,0 +1,4 @@
+pandas
+pyspark
+delta-spark
+azure-storage-blob
